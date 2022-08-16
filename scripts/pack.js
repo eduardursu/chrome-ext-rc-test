@@ -2,7 +2,7 @@ const fs = require("fs")
 const path = require("path")
 const ChromeExtension = require("crx")
 const keyPath = path.resolve(__dirname, "../key.pem")
-const update_url= "https://eduardursu.github.io/chrome-ext-rc-test"
+const update_url= "https://s3.amazonaws.com/download-dev.dnsfilter.com/chrome-extension/test"
 //Parse manifest keys,values as object
 const manifest = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../dist/manifest.json"), "utf8"))
 //Add the update_url value
@@ -26,11 +26,11 @@ crx
   .then((crx) => crx.pack())
   .then((crxBuffer) => {
     fs.writeFileSync(
-      path.resolve(__dirname, "../updates.xml"),
+      path.resolve(__dirname, "../releases/updates.xml"),
       crx.generateUpdateXML()
     )
     fs.writeFileSync(
-      path.resolve(__dirname, "../dnsfilter-chrome-extension.crx"),
+      path.resolve(__dirname, "../releases/dnsfilter-chrome-extension.crx"),
       crxBuffer
     )
     console.log("\x1b[32m"," Packing completed. Check the files\n")
