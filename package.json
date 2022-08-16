@@ -1,0 +1,17 @@
+{
+  "name": "chrome-ext-rc-test",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -rf dist lib dist_dev .cache .parcel-cache",
+    "clean-build" : "rm -rf dist release/updates.xml releases/dnsfilter-chrome-extension.crx",
+    "watch": "parcel watch src/background.js --dist-dir dist --no-cache --no-source-maps",
+    "build": "parcel build src/background.js --dist-dir dist --no-content-hash --no-source-maps --no-cache",
+    "crx": "node scripts/pack.js",
+    "pack": "npm run clean-build && npm run build && npm run crx"
+  },
+  "devDependencies": {
+    "crx": "5.0.1",
+    "parcel": "^2.5.0",
+    "parcel-reporter-static-files-copy": "^1.3.4"
+  }
+}
