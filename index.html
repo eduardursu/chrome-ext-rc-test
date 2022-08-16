@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uninstall</title>
+    <style>
+        main{
+            margin: auto;
+            max-width: 65rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div> If you see that page it means you just uninstalled the Chrome Ext RC</div>
+        <div id="test"></div>
+    </main>
+    
+    
+</body>
+<script>
+    const t= document.getElementById("test");
+
+    function ready() {
+        var values =""
+        const params = new URLSearchParams(window.location.search)
+        for (const param of params) 
+         values+="\n - "+param
+        t.innerText=values
+    }
+
+  document.addEventListener("DOMContentLoaded", ready);
+
+</script>
+</html>
